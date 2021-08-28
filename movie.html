@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <style>
+        .mbox{
+            /* height:230px; */
+            overflow:hidden
+        }
+        .imageBox{
+            height: 350px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2 class="text-center p-5">Welcome to Our Movie app</h2>
+    </header>
+    <main>
+        <section class="container pb-5">
+            <div class="border border-secondary border-2 p-3 rounded-3">
+                <h3 class="text-center">Movie Details</h3>
+                <div id="movie-details" class="text-center">
+
+                </div>
+            </div>
+        </section>
+        <section >
+            <div class="text-center p-5" id="movie-spinner">
+                <div class="spinner-border text-warning" role="status">
+                    <!-- <span class="visually-hidden">Loading...</span> -->
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="row" id="movie-container">
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="js/movie.js"></script>
+</body>
+</html>
+<!-- 
+api key => f96ac62d92ada173838748fa0f087eef
+image api => https://image.tmdb.org/t/p/original/620hnMVLu6RSZW6a5rwO8gqpt0t.jpg
+
+api doc => https://developers.themoviedb.org/3/authentication
+movie details => https://api.themoviedb.org/3/movie/724089?api_key=f96ac62d92ada173838748fa0f087eef
+
+top rated movies => https://api.themoviedb.org/3/movie/top_rated?api_key=f96ac62d92ada173838748fa0f087eef
+
+get videos => https://api.themoviedb.org/3/movie/724089/videos?api_key=f96ac62d92ada173838748fa0f087eef
+ -->
