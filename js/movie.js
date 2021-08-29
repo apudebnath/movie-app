@@ -1,4 +1,4 @@
-// Recive data from a url or link
+/* // Recive data from a url or link
 
 const loadMovies = () =>{
     fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=f96ac62d92ada173838748fa0f087eef')
@@ -10,6 +10,9 @@ loadMovies();
 // Set Data on page or inner HTML 
 
 const setMovies = (movies) => {
+    // if we want to show first 10 or 15 data ==
+    //const firstTenMOvies = movies.slice(0,10)
+    // then loop er moddhe variable ta chenge kore dilei hobe.
     //  add spinner 
     const movieSpenner = document.getElementById('movie-spinner');
     movieSpenner.style.display = 'none';
@@ -57,6 +60,39 @@ const setMovieDetails = (movie) => {
     <h3>Movie Name:${movie.original_title}</h3>
     `;
     movieDetails.appendChild(movieBox);
+}
+
+ */
+
+///////////\\\\\\\\\\\\\\\\//////////////\\\\\///////\\\\\\\\\\\\\\//////\\\\\\\\\//////\\\\\/////\///\\\
+const loadMovies = () => {
+    fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=f96ac62d92ada173838748fa0f087eef')
+    .then(res => res.json())
+    .then(data => getMovies(data.results))
+}
+loadMovies();
+
+const getMovies = (movies) => {
+    const movieContainer = document.getElementById('movies-container');
+    movies.forEach(movie => {
+        console.log(movie);
+        const movieBox = document.createElement('div');
+        movieBox.classList.add('col-md-3');
+        const imgUrl ="https://image.tmdb.org/t/p/original" + movie.poster_path
+        movieBox.innerHTML = `
+        <div class="shadow rounded-3 p-3 m-3 text-center">
+            <img class="img-fluid" src="${imgUrl}">
+            <h3 class="fs-1">${movie.title}</h3>
+            <p>${movie.overview.slice(0, 100)}</p>
+            <button onclick="showDetails()" type="button" class="btn btn-secondary">Secondary</button>
+        </div>
+        `;
+        movieContainer.appendChild(movieBox);
+    })
+}
+
+const showDetails = () => {
+console.log('clicked')
 }
 
 
